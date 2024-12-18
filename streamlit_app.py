@@ -7,12 +7,12 @@ import os
 gemini_api = os.getenv("Genai_api")
 model_name = "gemini-1.5-flash"
 
-geminiModel = GeminiModel(gemini_api, model_name)
+GM = GeminiModel(gemini_api, model_name)
 
 # Define the QueryProcessor class (from your original code)
 class QueryProcessor:
     def __init__(self, query: str):
-        self.query = query
+        self.query = query 
         self.serper_output = None
         self.formatted_prompt = None
         self.ai_response = None
@@ -27,14 +27,14 @@ class QueryProcessor:
         if not self.prompt_file.is_file():
             raise FileNotFoundError(f"Prompt file not found at {self.prompt_file}")
         
-        with self.prompt_file.open("r") as f:
+        with self.prompt_file.open("r") as f: #opens the prompt file in read mode
             prompt_template = f.read()
         
-        self.formatted_prompt = prompt_template.format(serper_output=self.serper_output, question=self.query)
+        self.formatted_prompt = prompt_template.format(serper_output=self.serper_output, question=self.query) #formats the prompt with the search results and query
 
     def generate_ai_response(self):
         """Generate AI response using the Gemini model."""
-        self.ai_response = geminiModel.generate_content(self.formatted_prompt)
+        self.ai_response = GM.generate_content(self.formatted_prompt) #generates the response using the formatted_prompt
 
     def process_query(self):
         """Process the query by performing all necessary steps."""

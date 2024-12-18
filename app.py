@@ -4,7 +4,7 @@ import uvicorn
 #from pydantic import BaseModel
 from pathlib import Path
 from serper import serperquery
-from main import gemini
+from main import generate_content
 
 # Initialize FastAPI application
 app = FastAPI()
@@ -56,3 +56,7 @@ def process_query(query: str):
 if __name__ == "__main__":
     # Run the FastAPI application with uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8001)
+
+
+
+

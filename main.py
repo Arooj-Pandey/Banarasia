@@ -2,7 +2,7 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv() #to load the environment variables from the .env file
 
 # python -m venv "name of your venv to be created without("") " ===> to create virtual environment
 # pip freeze > requirements.txt ===> to create requirements.txt file 
