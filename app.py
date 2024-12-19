@@ -23,7 +23,7 @@ def process_query(query: str):
         # Step 1: Get search results from Serper
         serper_output = serperquery(query)
 
-        # Step 2: Format the prompt using a predefined template
+        # Step 2: Format the prompt using a predefined template 
         prompt_file = Path(r"D:\projects\Banarasia\prompt.txt")
         if not prompt_file.is_file():
             raise FileNotFoundError(f"Prompt file not found at {prompt_file}")

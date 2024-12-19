@@ -22,36 +22,53 @@ def serperquery(query):
 
 #Serper tool for image generation
 
-
-conn = http.client.HTTPSConnection("google.serper.dev")
-payload = json.dumps({
-  "q": "apple inc",
-  "gl": "in"
-})
-headers = {
-  'X-API-KEY': 'e40490d0083cd56dd95e52f41841364bbe64e6aa',
-  'Content-Type': 'application/json'
-}
-conn.request("POST", "/images", payload, headers)
-res = conn.getresponse()
-data = res.read()
-print(data.decode("utf-8"))
+def serper_img_query(keywords):
+  conn = http.client.HTTPSConnection("google.serper.dev")
+  payload = json.dumps({
+    "q": "apple inc",
+    "gl": "in"
+  })
+  headers = {
+    'X-API-KEY': os.getenv("Serper_api"),
+    'Content-Type': 'application/json'
+  }
+  conn.request("POST", "/images", payload, headers)
+  res = conn.getresponse()
+  data = res.read()
+  return(data.decode("utf-8"))
 
 
 #Serper tool for fetching Locations
 
-import http.client
-import json
+def serper_maps_query(keyword):
+  conn = http.client.HTTPSConnection("google.serper.dev")
+  payload = json.dumps({
+    "q": "apple inc"
+  })
+  headers = {
+    'X-API-KEY': os.getenv("Serper_api"),
+    'Content-Type': 'application/json'
+  }
+  conn.request("POST", "/places", payload, headers)
+  res = conn.getresponse()
+  data = res.read()
+  return(data.decode("utf-8"))
+  
+  
+#Serper tool for fetching Videos
 
-conn = http.client.HTTPSConnection("google.serper.dev")
-payload = json.dumps({
-  "q": "apple inc"
-})
-headers = {
-  'X-API-KEY': 'e40490d0083cd56dd95e52f41841364bbe64e6aa',
-  'Content-Type': 'application/json'
-}
-conn.request("POST", "/places", payload, headers)
-res = conn.getresponse()
-data = res.read()
-print(data.decode("utf-8"))
+def serper_video_query(keyword):
+  conn = http.client.HTTPSConnection("google.serper.dev")
+  payload = json.dumps({
+    "q": "apple inc",
+    "location": "Varanasi, Uttar Pradesh, India",
+    "gl": "in"
+  })
+  headers = {
+    'X-API-KEY': os.getenv("Serper_api"),
+    'Content-Type': 'application/json'
+  }
+  conn.request("POST", "/videos", payload, headers)
+  res = conn.getresponse()
+  data = res.read()
+  return(data.decode("utf-8"))

@@ -49,8 +49,8 @@ class QueryProcessor:
         }
 
 # Streamlit UI
-st.title("AI Query Processor")
-st.write("Enter a query to get search results and AI-generated responses.")
+st.title("Benarasia: AI Powered Search and Response System")
+st.write("Want to know about Benaras! But can't find a Benarasi? No worries, Benarasia is here to help!")
 
 # Input field for user query
 query = st.text_input("Enter your query:", placeholder="Type your question here (e.g., 'Tell me about Varanasi')")
